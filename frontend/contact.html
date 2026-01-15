@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Contact Us</h1>
+
+  <form id="contactForm">
+    <input id="name" placeholder="Name" required />
+    <input id="email" placeholder="Email" required />
+    <textarea id="message" placeholder="Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async e => {
+      e.preventDefault();
+
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.value,
+          email: email.value,
+          message: message.value
+        })
+      });
+
+      alert("Message sent!");
+    });
+  </script>
+</body>
+</html>
