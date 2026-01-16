@@ -19,6 +19,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no \
           ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
             cd ~/company_website
-            docker compose pull
-            docker compose up -d
+            docker-compose pull
+            docker-compose up -d
           EOF
