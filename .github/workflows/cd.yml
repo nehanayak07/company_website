@@ -20,5 +20,7 @@ jobs:
           ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
             cd ~/company_website
             docker-compose pull
+            docker-compose down
+            docker-compose build --no-cache
             docker-compose up -d
           EOF
